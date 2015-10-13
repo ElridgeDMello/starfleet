@@ -3,7 +3,11 @@
   "version": "0.0.1",
   "license": "MIT",
   "description": "Evaluates a cadet's script at clearing a grid of mines",
+  "dependencies": {
+    "underscore": "1.8.x"
+  },
   "devDependencies": {
+    "jasmine-expect": "1.x",
     "jasmine-node": "1.14.x",
     "proxyquire": "1.7.x"
   }
