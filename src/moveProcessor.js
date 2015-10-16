@@ -1,8 +1,9 @@
 "use strict";
 
-var _ = require('underscore');
-
 // returns a new grid after the move has been completed
+//
+// conforms to an interface function(grid, instruction)
+// so as to simplify delegation logic
 module.exports.execute = function(initialGrid, moveDirection) {
 
     var movedGrid;

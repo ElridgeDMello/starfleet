@@ -32,11 +32,10 @@ function score(initialMineCount, instructions) {
         discreteInstructions;
 
     // flatten instructions and count
-    // the map would return an array of arrays, which we flatten into a array
-    var temp = instructions.map(function(instruction) {
+    // the map() returns an array of arrays, which we flatten into a array
+    discreteInstructions = _.flatten(instructions.map(function(instruction) {
         return instruction.split(' ');
-    });
-    discreteInstructions = _.flatten(temp);
+    }));
 
     numberOfMovesMade = discreteInstructions.filter(function(instruction) {
         return instructionDictionary.isMoveInstruction(instruction);

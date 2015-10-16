@@ -50,6 +50,10 @@ function delegateInstructionExecution(grid, instruction) {
     subInstructions.forEach(function(subInstruction) {
         theDelegate = getDelegate(subInstruction);
         if (theDelegate) {
+            // could be either the moveProcessor or the torpedoGun.
+            // both have the same execute method interface taking
+            // the arguments (grid, instruction) so that the logic
+            // to do the delegation could be kept simple
             grid = theDelegate.execute(grid, subInstruction);
         }
     });
