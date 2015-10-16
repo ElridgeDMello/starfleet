@@ -8,6 +8,9 @@ var simulationPrinter = require('../src/simulationPrinter'),
 
 var SIMULATION_DELAY = 1000;
 
+// Controls the simulation of the the mine clearing evaluator
+// Does not return anything, but prints the simulation output
+// to the console
 module.exports.simulate = function(grid, instructions) {
 
     var stepCounter = 0,

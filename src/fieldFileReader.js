@@ -2,6 +2,7 @@
 
 // reads raw field file content and creates the internal grid datastructure
 // used to represent grid state throughout the simulation
+// returns the grid object
 module.exports.generateGrid = function generateGrid(fieldFileContent) {
     var fieldFileLines,
         height, width,

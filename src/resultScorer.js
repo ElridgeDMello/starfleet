@@ -3,7 +3,7 @@
 var _ = require('underscore'),
     instructionDictionary = require('../src/instructionDictionary');
 
-// returns pass/fail and the score
+// returns pass/fail and the score based on the input arguments
 module.exports.getOutcome = function(passedMine, hasLeftoverMines,
                                      instructions, executedInstructionCount,
                                      initialMineCount) {

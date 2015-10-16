@@ -7,6 +7,9 @@
 var depthValues = '*abcdefghijklmnopqrstuvwxyz' +
     'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
+// Drops the vessel through the space of the grid
+// returns a new grid representing the state after
+// the drop is executed
 module.exports.dropVessel = function (grid) {
     return {
         mineLocations: grid.mineLocations.map(function (loc) {

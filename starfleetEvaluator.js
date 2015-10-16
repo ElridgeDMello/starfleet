@@ -6,6 +6,9 @@ var fs = require('fs'),
 
 var ENCODING = 'utf8';
 
+// The "main" program that reads the content of the files specified
+// by the command line args and kicks off the simulation by delegating
+// to the simulationController
 (function initialize() {
     var fieldFilePath,
         fieldFileContent,
@@ -24,7 +27,6 @@ var ENCODING = 'utf8';
     scriptFileContent = fs.readFileSync(scriptFilePath, ENCODING);
 
     grid = fieldFileReader.generateGrid(fieldFileContent);
-
     instructions = parseInstructions(scriptFileContent);
 
     // delegate to controller

@@ -7,6 +7,9 @@ var dropper = require('../src/dropper'),
 
 var instructionDelegate;
 
+// execute a step of the simulation
+// returns a new grid with the updated state after the instruction
+// has been run
 module.exports.executeStep = function(grid, instruction) {
 
     // empty instruction, simply drop
