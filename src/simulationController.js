@@ -6,6 +6,8 @@ var simulationPrinter = require('../src/simulationPrinter'),
     resultScorer = require('../src/resultScorer'),
     _ = require('underscore');
 
+var SIMULATION_DELAY = 1000;
+
 module.exports.simulate = function(grid, instructions) {
 
     var stepCounter = 0,
@@ -16,7 +18,9 @@ module.exports.simulate = function(grid, instructions) {
 
     initialMineCount = grid.mineLocations.length;
 
-    do {
+    // found the technique for looping with a delay at
+    // http://scottiestech.info/2014/07/01/javascript-fun-looping-with-a-delay/
+    function simulationStep() {
         stepCounter += 1;
         // print before state
         simulationPrinter.printStep(stepCounter);
@@ -31,18 +35,27 @@ module.exports.simulate = function(grid, instructions) {
 
         // print after state
         simulationPrinter.printOutputForGrid(grid);
-    }
-    while (shouldContinueSimulation(grid, instructions, executedInstructions));
 
-    // print outcome
-    console.log(
-        resultScorer.getOutcome(
-            isVesselPastAMine(grid),
-            hasLeftoverMines(grid),
-            instructions,
-            executedInstructions,
-            initialMineCount
-        ));
+        if (shouldContinueSimulation(grid, instructions, executedInstructions)) {
+            simulationLoop();
+        } else {
+            // print outcome
+            console.log(
+                resultScorer.getOutcome(
+                    isVesselPastAMine(grid),
+                    hasLeftoverMines(grid),
+                    instructions,
+                    executedInstructions,
+                    initialMineCount
+                ));
+        }
+    }
+
+    function simulationLoop() {
+        setTimeout(simulationStep, SIMULATION_DELAY);
+    }
+
+    simulationLoop();
 };
 
 // private
