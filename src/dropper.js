@@ -14,7 +14,7 @@ module.exports.dropVessel = function (grid) {
                 lat: loc.lat,
                 lon: loc.lon,
                 depth: depthValues.charAt(depthValues.indexOf(loc.depth) - 1)
-            }
+            };
         })
     };
 };

@@ -45,9 +45,9 @@ function score(initialMineCount, instructions) {
         return instructionDictionary.isTorpedoInstruction(instruction);
     }).length;
 
-    finalScore = startingScore
-        - getMaxOrLower(maxMovesDeduction, numberOfMovesMade * 2)   // 2 pts per move
-        - getMaxOrLower(maxShotsFiredDeduction, numberOfTorpedoShotsFired * 5); // 5 points per shot
+    finalScore = startingScore -
+        getMaxOrLower(maxMovesDeduction, numberOfMovesMade * 2) -  // 2 pts per move
+        getMaxOrLower(maxShotsFiredDeduction, numberOfTorpedoShotsFired * 5); // 5 points per shot
 
     return finalScore;
 }
